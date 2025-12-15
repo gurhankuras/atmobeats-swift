@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  musicmood
+
+  Created by Gurhan on 12/9/25.
+*/
+
+"weather.next_button"="Next";
+"weather.notAuthorized.text"="This app requires location permission to work properly. Please enable location access in Settings.";
+"weather.notAuthorized.settings_button"="Go to Settings";
+"weather.notAuthorized.cancel_button"="Cancel";
+
+
+"genres.selection.title"="Choose your favorite genres";
+"genres.next_button"="Next";
+
+"artists.title"="Select some of your favorite artists";
+"artists.search.field.placeholder"="Search for an artist";
+"artists.next_button"="Next";
+"artists.search.no_found"="No artists found";
+"artists.search.minimum_characters_warning"="Type at least 3 characters";
+"recommendation.loading.text"= "Tuning your vibe\nwith personalized picks…";
+"recommendation.title"= "Here's your recommended tracks";
+
+
+

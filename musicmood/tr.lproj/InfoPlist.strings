@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  musicmood
+
+  Created by Gurhan on 12/9/25.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Hava durumuna göre müzik önerebilmemiz için konumuna erişmemiz gerekiyor.";

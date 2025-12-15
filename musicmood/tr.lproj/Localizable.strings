@@ -1,0 +1,23 @@
+/*
+  Localizable.strings
+  musicmood
+
+  Created by Gurhan on 12/9/25.
+*/
+
+"weather.next_button" = "İleri";
+"weather.notAuthorized.text"="Uygulamanın çalışabilmesi için konum izni gerekmektedir. Lütfen Ayarlar’dan konum erişimine izin verin.";
+"weather.notAuthorized.settings_button"="Ayarlara Git";
+"weather.notAuthorized.cancel_button"="Vazgeç";
+
+"genres.selection.title" = "Favori müzik türlerini seç";
+"genres.next_button" = "İleri";
+
+"artists.title" = "Favori sanatçılarından bazılarını seç";
+"artists.search.field.placeholder" = "Sanatçı ara";
+"artists.next_button" = "İleri";
+"artists.search.no_found" = "Sanatçı bulunamadı";
+"artists.search.minimum_characters_warning" = "En az 3 karakter yazmalısın";
+
+"recommendation.loading.text" = "Sana özel önerilerle\nparçalarını ayarlıyorum…";
+"recommendation.title" = "Senin için önerilen parçalar";
