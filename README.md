@@ -1,5 +1,21 @@
 # atmobeats 🎧
 
+---
+
+## 📱 Screenshots
+
+<p align="center">
+  <img src="Docs/Screenshots/weather_screen.png" width="250" style="margin-right: 12px;">
+  <img src="Docs/Screenshots/genre_selection_screen.png" width="250">
+</p>
+
+<p align="center">
+  <img src="Docs/Screenshots/artist_selection_screen.png" width="250" style="margin-right: 12px;">
+  <img src="Docs/Screenshots/recommendations_screen.png" width="250">
+</p>
+
+---
+
 **atmobeats** is an iOS application that delivers personalized music recommendations based on contextual signals such as weather, selected genres, and favorite artists.
 
 The app is built with **SwiftUI** and communicates with a **.NET Web API backend**, hosted on **Microsoft Azure**.  
@@ -55,18 +71,3 @@ This project is designed as a real-world, end-to-end example of a modern mobile 
 - **OpenWeather API**  
   Provides real-time weather data that directly influences recommendation logic.
 
----
-
-## 📱 Screenshots
-
-<p align="center">
-  <img src="Docs/Screenshots/weather_screen.png" width="250" style="margin-right: 12px;">
-  <img src="Docs/Screenshots/genre_selection_screen.png" width="250">
-</p>
-
-<p align="center">
-  <img src="Docs/Screenshots/artist_selection_screen.png" width="250" style="margin-right: 12px;">
-  <img src="Docs/Screenshots/recommendations_screen.png" width="250">
-</p>
-
----
