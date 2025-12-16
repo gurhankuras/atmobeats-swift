@@ -17,6 +17,7 @@ require_relative "lanes/lane_dev_upload"
 require_relative "helpers/resolve_version"
 require_relative "helpers/apply_version_and_build"
 require_relative "helpers/pre_build_checks"
+require_relative "helpers/get_marketing_version"
 
 default_platform(:ios)
 
