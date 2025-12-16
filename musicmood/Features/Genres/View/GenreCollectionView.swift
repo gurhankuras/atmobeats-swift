@@ -1,6 +1,7 @@
 import SwiftUI
 
 // MARK: - Main Genres View
+
 struct GenresCollectionView: View {
     var genres: [Genre]
     @Binding var selectedGenres: Set<Genre>

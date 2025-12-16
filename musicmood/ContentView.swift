@@ -27,9 +27,6 @@ struct ContentView: View {
         .onOpenURL { url in
             router.handleLink(url)
         }
-        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
-            let url = activity.webpageURL
-        }
     }
 }
 

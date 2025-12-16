@@ -1,5 +1,5 @@
 //
-//  NavigatiobStackBuilder.swift
+//  RouteBuilder.swift
 //  musicmood
 //
 //  Created by Gurhan on 12/7/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor
-enum RouteBuilder  {
+enum RouteBuilder {
     @ViewBuilder
     static func destination(for route: Route) -> some View {
         switch route {
@@ -27,7 +27,3 @@ enum RouteBuilder  {
         }
     }
 }
-
-
-
-

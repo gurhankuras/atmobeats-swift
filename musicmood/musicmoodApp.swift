@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct musicmoodApp: App {
+struct MusicmoodApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @Environment(\.scenePhase) var scenePhase
     @StateObject var locationManager = DependencyFactory.buildWeatherViewModel()
@@ -19,7 +19,7 @@ struct musicmoodApp: App {
         DependencyFactory.buildRecommendationsViewModel()
     @StateObject var favoriteArtistsViewModel =
         DependencyFactory.buildFavoriteArtistsViewModel()
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()

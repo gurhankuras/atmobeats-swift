@@ -17,16 +17,15 @@ class AtmoBeatsPersistentContainer {
         container.persistentStoreDescriptions.first?.url = URL(
             fileURLWithPath: "/dev/null"
         )
-        container.loadPersistentStores { (description, error) in
-
+        container.loadPersistentStores { _, _ in
         }
         return container.viewContext
     }
 
     init() {
-        self.persistentContainer = NSPersistentContainer(name: "atmobeats")
+        persistentContainer = NSPersistentContainer(name: "atmobeats")
 
-        persistentContainer.loadPersistentStores { (description, error) in
+        persistentContainer.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

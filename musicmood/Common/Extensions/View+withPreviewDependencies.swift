@@ -10,8 +10,7 @@ import SwiftUI
 #if DEBUG
 extension View {
     func withPreviewDependencies() -> some View {
-        self
-            .environmentObject(DependencyFactory.buildArtistSearchViewModel())
+        environmentObject(DependencyFactory.buildArtistSearchViewModel())
             .environmentObject(DependencyFactory.buildGenresViewModel())
             .environmentObject(DependencyFactory.buildWeatherViewModel())
             .environmentObject(
@@ -20,4 +19,3 @@ extension View {
     }
 }
 #endif
-

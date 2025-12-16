@@ -19,6 +19,6 @@ struct KeyboardDismissModifier: ViewModifier {
 
 extension View {
     func dismissKeyboardOnTap() -> some View {
-        self.modifier(KeyboardDismissModifier())
+        modifier(KeyboardDismissModifier())
     }
 }

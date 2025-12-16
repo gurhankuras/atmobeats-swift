@@ -6,6 +6,7 @@
 import SwiftUI
 
 // MARK: - Custom Wrap Layout
+
 struct WrapLayout: Layout {
     var spacing: CGFloat = 12
 
@@ -46,6 +47,7 @@ struct WrapLayout: Layout {
     }
 
     // MARK: - Helper
+
     struct FlexLayoutResult {
         var frames: [CGRect] = []
         var size: CGSize = .zero
@@ -59,7 +61,7 @@ struct WrapLayout: Layout {
                 let size = subview.sizeThatFits(.unspecified)
 
                 // Yeni satıra geç
-                if x + size.width > maxWidth && x > 0 {
+                if x + size.width > maxWidth, x > 0 {
                     x = 0
                     y += lineHeight + spacing
                     lineHeight = 0
@@ -73,7 +75,7 @@ struct WrapLayout: Layout {
                 x += size.width + spacing
             }
 
-            self.size = CGSize(
+            size = CGSize(
                 width: maxWidth,
                 height: y + lineHeight
             )

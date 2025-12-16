@@ -35,7 +35,7 @@ struct LottieView: UIViewRepresentable {
             animationView.topAnchor.constraint(equalTo: container.topAnchor),
             animationView.bottomAnchor.constraint(
                 equalTo: container.bottomAnchor
-            ),
+            )
         ])
 
         return container

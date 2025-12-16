@@ -26,13 +26,13 @@ class GenreViewModel: ObservableObject {
         do {
             let items = try await service.getGenres()
             genresState = .success(items)
-            self.genres = items
+            genres = items
         } catch {
             genresState = .error(error)
             print(error)
         }
     }
-    
+
     func reset() {
         genres = []
         selectedGenres = []

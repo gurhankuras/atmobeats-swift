@@ -16,21 +16,21 @@ class ArtistCoreDataStore {
 
     func saveArtist(artist: Artist) {
         context.perform { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             let entity = ArtistEntity(context: context)
             entity.id = artist.id
             entity.name = artist.name
             entity.imageUrl = artist.lowestResolutionImageURL
-            entity.popularity = Int16(artist.popularity ?? 0)
+            entity.popularity = Int16(artist.popularity)
             entity.createdAt = Date.now
             do {
                 try context.save()
-            } catch let error {
+            } catch {
                 print(error)
             }
         }
     }
-    
+
     func getArtistsByCreateDateDescending() throws -> [Artist] {
         let request = ArtistEntity.fetchRequest()
         request.sortDescriptors = [
@@ -53,7 +53,7 @@ class ArtistCoreDataStore {
                     popularity: Int(artist.popularity)
                 )
             }
-        } catch let error {
+        } catch {
             throw ArtistCoreDataStoreError.unableToFetchArtists(error: error)
         }
     }
@@ -61,11 +61,11 @@ class ArtistCoreDataStore {
 
 enum ArtistCoreDataStoreError: Error, LocalizedError {
     case unableToFetchArtists(error: Error)
-    
+
     var errorDescription: String? {
         switch self {
         case .unableToFetchArtists:
-            return "Unable to fetch artists."
+            "Unable to fetch artists."
         }
     }
 }

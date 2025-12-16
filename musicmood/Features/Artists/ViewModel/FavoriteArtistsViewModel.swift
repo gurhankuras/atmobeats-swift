@@ -19,7 +19,7 @@ class FavoriteArtistsViewModel: ObservableObject {
 
     func fetchFavoriteArtists() {
         if let fetchedArtists = try? artistStore.getArtistsByCreateDateDescending() {
-            self.artists = fetchedArtists
+            artists = fetchedArtists
         }
     }
 }

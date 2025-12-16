@@ -11,7 +11,7 @@ struct GenreChip: View {
     let genre: Genre
     let isSelected: Bool
     let onTap: () -> Void
-    
+
     var body: some View {
         Text(genre.name)
             .font(.body)

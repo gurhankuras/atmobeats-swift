@@ -48,7 +48,6 @@ struct SettingsView: View {
                     dismiss()
                 }
             }
-
         }
     }
 
@@ -60,7 +59,7 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Preview: PreviewProvider {
+struct SettingsViewPreview: PreviewProvider {
     static var previews: some View {
         SettingsView()
             .environmentObject(

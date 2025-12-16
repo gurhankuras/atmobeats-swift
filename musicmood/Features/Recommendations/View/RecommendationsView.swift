@@ -88,8 +88,8 @@ struct RecommendationsView: View {
         let artists = artistsViewModel.selectedArtists.map(\.name)
         let temperature = weatherViewModel.weatherResponse?.temperature
 
-        guard let temperature = temperature,
-            let weatherDescription = weatherDescription
+        guard let temperature,
+              let weatherDescription
         else { return }
 
         viewModel.getRecommendations(
@@ -105,7 +105,6 @@ struct RecommendationsView: View {
 
 #if DEBUG
 struct RecommendationsRecommendationView_Previews: PreviewProvider {
-
     static var previews: some View {
         RecommendationsView()
             .withPreviewDependencies()

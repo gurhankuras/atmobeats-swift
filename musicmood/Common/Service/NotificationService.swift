@@ -12,11 +12,11 @@ class NotificationService {
     init(notificationCenter: UNUserNotificationCenter) {
         self.notificationCenter = notificationCenter
     }
-    
+
     func ensureNotificationPermission(
         completion: @escaping (Bool) -> Void
     ) {
-       notificationCenter.getNotificationSettings { settings in
+        notificationCenter.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional:
                 completion(true)

@@ -11,6 +11,7 @@ class TrackRecommendationService: TrackRecommending {
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
+
     func getRecommendations(
         for request: MusicRecommendationRequest,
         completion: @escaping (Result<[TrackRecommendation], any Error>) -> Void
@@ -22,5 +23,4 @@ class TrackRecommendationService: TrackRecommending {
             completion: completion
         )
     }
-
 }

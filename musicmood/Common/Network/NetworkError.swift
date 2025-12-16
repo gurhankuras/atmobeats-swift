@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Network Error
+
 enum NetworkError: LocalizedError {
     case invalidURL
     case invalidResponse
@@ -15,22 +16,21 @@ enum NetworkError: LocalizedError {
     case noData
     case decodingError(Error)
     case requestFailed(Error)
-    
+
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "Geçersiz URL"
+            "Geçersiz URL"
         case .invalidResponse:
-            return "Geçersiz yanıt"
-        case .serverError(let statusCode):
-            return "Sunucu hatası: \(statusCode)"
+            "Geçersiz yanıt"
+        case let .serverError(statusCode):
+            "Sunucu hatası: \(statusCode)"
         case .noData:
-            return "Veri alınamadı"
-        case .decodingError(let error):
-            return "JSON parse hatası: \(error.localizedDescription)"
-        case .requestFailed(let error):
-            return "İstek başarısız: \(error.localizedDescription)"
+            "Veri alınamadı"
+        case let .decodingError(error):
+            "JSON parse hatası: \(error.localizedDescription)"
+        case let .requestFailed(error):
+            "İstek başarısız: \(error.localizedDescription)"
         }
     }
 }
-

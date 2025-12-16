@@ -22,8 +22,6 @@ struct ImageButton: View {
 
 struct ImageButton_Previews: PreviewProvider {
     static var previews: some View {
-        ImageButton(systemName: "star.fill") {
-            
-        }
+        ImageButton(systemName: "star.fill") {}
     }
 }

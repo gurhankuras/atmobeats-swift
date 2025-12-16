@@ -11,8 +11,6 @@
 		59C022C92EF0BB9500E0059D /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59C022C82EF0BB9500E0059D /* GoogleService-Info-Dev.plist */; };
 		59CF74FA2EE6C2A800918BB7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 59CF74F92EE6C2A800918BB7 /* Lottie */; };
 		59ECC82B2EF0238300793913 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 59ECC82A2EF0238300793913 /* FirebaseMessaging */; };
-		59ECCBFA2EF0465B00793913 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 59ECCBF92EF0465800793913 /* README.md */; };
-		59ECCEE82EF04A7F00793913 /* .gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 59ECCEE72EF04A7B00793913 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +34,8 @@
 		591B46EE2EE57577007B9E8B /* atmobeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atmobeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		591B46FB2EE57579007B9E8B /* atmobeatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmobeatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		591B47052EE57579007B9E8B /* atmobeatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmobeatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5996750A2EF18DF000FC0E2E /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		5996750B2EF18F2700FC0E2E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		59C022672EF0A63A00E0059D /* GoogleService-Info-Prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Prod.plist"; sourceTree = "<group>"; };
 		59C022C82EF0BB9500E0059D /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		59ECCBF92EF0465800793913 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 				591B46FE2EE57579007B9E8B /* musicmoodTests */,
 				591B47082EE57579007B9E8B /* musicmoodUITests */,
 				591B46EF2EE57577007B9E8B /* Products */,
+				5996750A2EF18DF000FC0E2E /* .swiftformat */,
+				5996750B2EF18F2700FC0E2E /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +149,7 @@
 			buildPhases = (
 				59C022CA2EF0BC0300E0059D /* Move GoogleService-Info Run Script */,
 				591B46EA2EE57577007B9E8B /* Sources */,
+				59D05F312EF186FF000EB8F5 /* Run Swiftlint */,
 				591B46EB2EE57577007B9E8B /* Frameworks */,
 				591B46EC2EE57577007B9E8B /* Resources */,
 			);
@@ -310,6 +313,25 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nPLIST_NAME=\"${FIREBASE_PLIST_NAME}.plist\"\nSOURCE_PLIST=\"${SRCROOT}/Firebase/${PLIST_NAME}\"\nDEST_PLIST=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}/GoogleService-Info.plist\"\n\nif [ ! -f \"$SOURCE_PLIST\" ]; then\n  echo \"❌ Firebase plist not found: $SOURCE_PLIST\"\n  exit 1\nfi\n\necho \"✅ Using Firebase plist: $SOURCE_PLIST\"\ncp \"$SOURCE_PLIST\" \"$DEST_PLIST\"\n";
 		};
+		59D05F312EF186FF000EB8F5 /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed\"\nfi\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -317,8 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59ECCEE82EF04A7F00793913 /* .gitignore in Sources */,
-				59ECCBFA2EF0465B00793913 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +513,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
@@ -542,6 +563,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
@@ -750,6 +772,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
@@ -904,6 +927,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
