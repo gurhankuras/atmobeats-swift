@@ -28,7 +28,7 @@ struct TrackRecommendation: Decodable {
     let previewUrl: String?
 
     static var stub: TrackRecommendation {
-        return TrackRecommendation(
+        TrackRecommendation(
             title: "ocean eyes",
             artist: "Billie Eilish",
             reason: nil,
@@ -36,9 +36,8 @@ struct TrackRecommendation: Decodable {
             spotifyUrl: "https://open.spotify.com/track/2uIX8YMNjGMD7441kqyyNU",
             spotifyUri: "spotify:track:2uIX8YMNjGMD7441kqyyNU",
             albumImageUrl:
-                "https://i.scdn.co/image/ab67616d0000b2732cafcdd985630d72594ecc49",
+            "https://i.scdn.co/image/ab67616d0000b2732cafcdd985630d72594ecc49",
             previewUrl: nil
         )
     }
-
 }

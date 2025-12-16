@@ -22,12 +22,15 @@ struct Artist: Codable, Identifiable {
     }
 
     static var stub: Artist {
-        return Artist(
+        Artist(
             id: "3434",
             images: [
                 ArtistImage(
                     url:
-                        "https://static.wikia.nocookie.net/disney/images/c/c0/Taylor_Swift.jpg/revision/latest/thumbnail/width/360/height/360?cb=20231016171955",
+                    """
+https://static.wikia.nocookie.net/disney/images/c/c0/Taylor_Swift
+.jpg/revision/latest/thumbnail/width/360/height/360?cb=20231016171955
+""",
                     width: 100,
                     height: 100
                 )
@@ -36,7 +39,6 @@ struct Artist: Codable, Identifiable {
             popularity: 100
         )
     }
-
 }
 
 struct ArtistImage: Codable {

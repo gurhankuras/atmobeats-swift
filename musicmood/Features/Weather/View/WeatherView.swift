@@ -19,7 +19,6 @@ struct WeatherView: View {
 
             if let weather = weatherViewModel.weatherResponse {
                 VStack(spacing: 24) {
-
                     Spacer(minLength: 40)
 
                     // Weather Icon + Glow
@@ -59,8 +58,7 @@ struct WeatherView: View {
                     .padding(.horizontal, 24)
                     .padding(.bottom, 24)
                 }
-            }
-            else {
+            } else {
                 ProgressView()
                     .scaleEffect(1.5)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -71,16 +69,18 @@ struct WeatherView: View {
                 router.push(.settings)
             }
         }
-        .alert("weather.notAuthorized.text",
+        .alert(
+            "weather.notAuthorized.text",
             isPresented: $weatherViewModel.showFailedDialog,
             actions: {
-                Button("weather.notAuthorized.cancel_button", role: .cancel) {
-                    
-                }
+                Button("weather.notAuthorized.cancel_button", role: .cancel) {}
 
                 Button("weather.notAuthorized.settings_button") {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-
+                    UIApplication.shared.open(
+                        URL(string: UIApplication.openSettingsURLString)!,
+                        options: [:],
+                        completionHandler: nil
+                    )
                 }
             }
         )

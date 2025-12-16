@@ -1,5 +1,5 @@
 //
-//  NavigationRouter.swift
+//  Router.swift
 //  musicmood
 //
 //  Created by Gurhan on 12/7/25.
@@ -10,14 +10,13 @@ import Foundation
 import SwiftUI
 
 class Router: ObservableObject {
-
     private var routeCallbacks: [String: [String: () -> Void]] = [:]
 
     init(paths: [Route]) {
         self.paths = paths
     }
 
-    @Published var paths:  [Route]
+    @Published var paths: [Route]
     @Published var isReady = false
 
     private var pendingRoute: Route?
@@ -60,5 +59,4 @@ class Router: ObservableObject {
             pendingRoute = route
         }
     }
-
 }

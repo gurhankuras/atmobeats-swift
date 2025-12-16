@@ -11,7 +11,7 @@ enum ToolbarBuilder {
     static func backButton(_ dismiss: @escaping () -> Void)
         -> some ToolbarContent
     {
-        return ToolbarItem(placement: .topBarLeading) {
+        ToolbarItem(placement: .topBarLeading) {
             Button {
                 dismiss()
             } label: {

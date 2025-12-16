@@ -7,8 +7,8 @@
 
 import XCTest
 
-final class musicmoodUITestsLaunchTests: XCTestCase {
-
+final class MusicmoodUITestsLaunchTests: XCTestCase {
+    // // swiftlint:disable:next static_over_final_class
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

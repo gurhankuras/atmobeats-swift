@@ -1,4 +1,5 @@
 import FirebaseCore
+
 //
 //  AppDelegate.swift
 //  musicmood
@@ -9,7 +10,7 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     let permissionState = NotificationPermissionState()
-    private let notificationService: NotificationService = NotificationService(
+    private let notificationService: NotificationService = .init(
         notificationCenter: UNUserNotificationCenter.current()
     )
 
@@ -19,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             .LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
-        
+
         notificationService.ensureNotificationPermission { granted in
             DispatchQueue.main.async { [weak self] in
                 self?.permissionState.shouldShowSettingsAlert = !granted

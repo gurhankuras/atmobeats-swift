@@ -22,11 +22,11 @@ struct LongButtonStyle: ButtonStyle {
             .font(.title3.weight(.medium))
             .frame(maxWidth: .infinity)
             .background(
-                (configuration.isPressed
+                configuration.isPressed
                     ? Color(red: 0.85, green: 0.10, blue: 0.10)
-.opacity(0.7)
-                    : Color(red: 0.85, green: 0.10, blue: 0.10)
-),
+                    .opacity(0.7)
+                    : Color(red: 0.85, green: 0.10, blue: 0.10),
+
                 in: Capsule()
             )
             .scaleEffect(configuration.isPressed ? 0.97 : 1.0)

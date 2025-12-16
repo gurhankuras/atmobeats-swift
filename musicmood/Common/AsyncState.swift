@@ -17,7 +17,7 @@ enum AsyncState<Value, Failure> {
 // Sadece Failure == String iken errorMessage kullanılabilir
 extension AsyncState where Failure == String {
     var errorMessage: String? {
-        guard case .error(let msg) = self else { return nil }
+        guard case let .error(msg) = self else { return nil }
         return msg
     }
 }

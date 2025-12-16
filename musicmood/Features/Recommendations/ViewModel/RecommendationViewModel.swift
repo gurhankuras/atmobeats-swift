@@ -6,17 +6,17 @@
 //
 
 /*
-{
-  "temperatureC": 25,
-  "weatherDescription": "sunny",
-  "genres": [
-    "rock"
-  ],
-  "favoriteArtists": [
-    "Billie Eilish"
-  ]
-}
- */
+ {
+   "temperatureC": 25,
+   "weatherDescription": "sunny",
+   "genres": [
+     "rock"
+   ],
+   "favoriteArtists": [
+     "Billie Eilish"
+   ]
+ }
+  */
 
 import Combine
 import Foundation
@@ -28,7 +28,6 @@ struct MusicRecommendationRequest: Encodable {
     let favoriteArtists: [String]
 }
 
-
 final class RecommendationViewModel: ObservableObject {
     let recommender: TrackRecommending
     @Published var recommendationsState: AsyncState<[TrackRecommendation], Error> = .idle
@@ -37,20 +36,20 @@ final class RecommendationViewModel: ObservableObject {
     init(recommender: TrackRecommending) {
         self.recommender = recommender
     }
-    
+
     func getRecommendations(
         for request: MusicRecommendationRequest
     ) {
         recommendationsState = .loading
-        
+
         recommender.getRecommendations(for: request) { result in
             switch result {
-            case .success(let recommendations):
+            case let .success(recommendations):
                 DispatchQueue.main.async { [weak self] in
                     self?.recommendationsState = .success(recommendations)
                     self?.tracks = recommendations
                 }
-            case .failure(let error):
+            case let .failure(error):
                 DispatchQueue.main.async { [weak self] in
                     self?.recommendationsState = .error(error)
                 }
@@ -58,7 +57,7 @@ final class RecommendationViewModel: ObservableObject {
             }
         }
     }
-    
+
     func reset() {
         recommendationsState = .idle
         tracks = []

@@ -24,7 +24,6 @@ struct GenresView: View {
                             alignment: .center
                         )
                 } else {
-
                     GenresCollectionView(
                         genres: genreViewModel.genres,
                         selectedGenres: $genreViewModel.selectedGenres

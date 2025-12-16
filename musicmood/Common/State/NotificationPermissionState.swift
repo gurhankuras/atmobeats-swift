@@ -11,7 +11,6 @@ import UIKit
 import UserNotifications
 
 final class NotificationPermissionState: ObservableObject {
-
     @Published var shouldShowSettingsAlert = false
 
     private var didBecomeActiveObserver: NSObjectProtocol?

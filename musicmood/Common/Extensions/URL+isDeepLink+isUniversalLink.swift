@@ -1,17 +1,18 @@
 //
-//  URL+isDeepLink.swift
+//  URL+isDeepLink+isUniversalLink.swift
 //  musicmood
 //
 //  Created by Gurhan on 12/15/25.
 //
 
 import Foundation
+
 extension URL {
     var isDeepLink: Bool {
-        return scheme == "atmobeats"
+        scheme == "atmobeats"
     }
-    
+
     var isUniversalLink: Bool {
-        return scheme == "https"
+        scheme == "https"
     }
 }

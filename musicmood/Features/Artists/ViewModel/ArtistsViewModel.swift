@@ -25,9 +25,9 @@ class ArtistSearchViewModel: ObservableObject {
         Future<[Artist], Error> { [artistProvider] promise in
             artistProvider.getArtists(query: query) { result in
                 switch result {
-                case .success(let artists):
+                case let .success(artists):
                     promise(.success(artists))
-                case .failure(let error):
+                case let .failure(error):
                     promise(.failure(error))
                 }
             }
@@ -49,16 +49,16 @@ class ArtistSearchViewModel: ObservableObject {
                 guard
                     let self,
                     !query.trimmingCharacters(in: .whitespacesAndNewlines)
-                        .isEmpty
+                    .isEmpty
                 else {
                     // boş query'de boş dizi dönen basit bir publisher
                     return Just([])
                         .eraseToAnyPublisher()
                 }
 
-                return self.artistPublisher(for: query)
+                return artistPublisher(for: query)
             }
-            .switchToLatest()  // En son gelen query için istek çalışır
+            .switchToLatest() // En son gelen query için istek çalışır
             .receive(on: DispatchQueue.main)
             .sink { [weak self] artists in
                 self?.artists = artists
@@ -67,8 +67,7 @@ class ArtistSearchViewModel: ObservableObject {
     }
 
     func toggleSelection(for artist: Artist) {
-        if let index = selectedArtists.firstIndex(where: { $0.id == artist.id })
-        {
+        if let index = selectedArtists.firstIndex(where: { $0.id == artist.id }) {
             selectedArtists.remove(at: index)
         } else {
             selectedArtists.append(artist)
@@ -79,7 +78,7 @@ class ArtistSearchViewModel: ObservableObject {
     }
 
     func selectionCompleted() {
-        selectedArtists.forEach { artist in
+        for artist in selectedArtists {
             artistStore.saveArtist(artist: artist)
         }
     }
@@ -91,14 +90,14 @@ class ArtistSearchViewModel: ObservableObject {
     var isQueryHasLessThanThreeCharacters: Bool {
         let q =
             searchText
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
         return !q.isEmpty
             && q
-                .count < 3
+            .count < 3
     }
 
     func isSelected(artist: Artist) -> Bool {
-        return selectedArtists.contains {
+        selectedArtists.contains {
             $0.id == artist.id
         }
     }
@@ -108,5 +107,4 @@ class ArtistSearchViewModel: ObservableObject {
         artists = []
         searchText = ""
     }
-
 }

@@ -36,9 +36,9 @@ struct TrackRow: View {
             }
         }
         .frame(maxHeight: 80)
-        .padding(.trailing, 16)  // sadece sağa padding
+        .padding(.trailing, 16) // sadece sağa padding
         .background(
-            Color.white.opacity(0.18),  // veya kendi rengin
+            Color.white.opacity(0.18), // veya kendi rengin
             in: RoundedRectangle(cornerRadius: 12, style: .continuous)
         )
         .contextMenu {
@@ -51,14 +51,14 @@ struct TrackRow: View {
     }
 
     private func openInSpotify() {
-
         if let appURL = URL(string: track.spotifyUri),
-            UIApplication.shared.canOpenURL(appURL)
+           UIApplication.shared.canOpenURL(appURL)
         {
             UIApplication.shared.open(appURL)
         } else if
             let spotifyUrl = track.spotifyUrl,
-            let webURL = URL(string: spotifyUrl) {
+            let webURL = URL(string: spotifyUrl)
+        {
             UIApplication.shared.open(webURL)
         }
     }
@@ -67,18 +67,17 @@ struct TrackRow: View {
         AsyncImage(
             url: URL(
                 string:
-                    track.albumImageUrl
+                track.albumImageUrl
             )
         ) { phase in
             switch phase {
             case .empty:
                 Color.gray.opacity(0.2)
                     .overlay(ProgressView())
-
-            case .success(let image):
+            case let .success(image):
                 image
                     .resizable()
-                    .scaledToFill()  // alanı doldur
+                    .scaledToFill() // alanı doldur
                     .clipped()
             case .failure:
                 Color.gray.opacity(0.2)
@@ -90,7 +89,7 @@ struct TrackRow: View {
                 Color.gray.opacity(0.2)
             }
         }
-        .frame(width: 70, height: 70)  // satırı belirleyen kare
+        .frame(width: 70, height: 70) // satırı belirleyen kare
         .clipShape(
             RoundedCorner(radius: 12, corners: [.bottomLeft, .topLeft])
         )
@@ -104,6 +103,5 @@ struct TrackRow_Previews: PreviewProvider {
         }
         .padding()
         .previewLayout(.sizeThatFits)
-
     }
 }

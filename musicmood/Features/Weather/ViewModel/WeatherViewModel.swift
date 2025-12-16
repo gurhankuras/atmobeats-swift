@@ -1,5 +1,5 @@
 //
-//  LocationManager.swift
+//  WeatherViewModel.swift
 //  musicmood
 //
 //  Created by Gurhan on 12/7/25.
@@ -10,16 +10,14 @@ import CoreLocation
 import Foundation
 
 class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-
     let locationManager: CLLocationManager
     let service: WeatherService
 
     @Published var authorizationStatus: CLAuthorizationStatus?
     @Published var currentLocation: CLLocation?
     @Published var weatherResponse: WeatherResponse?
-    
-    @Published var showFailedDialog: Bool = false
 
+    @Published var showFailedDialog: Bool = false
 
     init(
         service: WeatherService,
@@ -54,13 +52,15 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         {
             showFailedDialog = false
             startUpdating()
-        }
-        else {
+        } else {
             showFailedDialog = true
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+
+    func locationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: any Error
+    ) {
         print("fail")
     }
 
@@ -71,14 +71,13 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         currentLocation = locations.last
         stopUpdating()
         if let latitude = currentLocation?.coordinate.latitude,
-            let longitute = currentLocation?.coordinate.longitude
+           let longitute = currentLocation?.coordinate.longitude
         {
-            service.getWeather(latitude: latitude, longitude: longitute) {
-                result in
+            service.getWeather(latitude: latitude, longitude: longitute) { result in
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
-                    if case .success(let res) = result {
-                        self.weatherResponse = res
+                    if case let .success(res) = result {
+                        weatherResponse = res
                     }
                 }
             }

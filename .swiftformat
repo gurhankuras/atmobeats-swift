@@ -1,0 +1,18 @@
+--swiftversion 5.9
+--indent 4
+--maxwidth 120
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--ifdef no-indent
+--stripunusedargs closure-only
+--self remove
+--commas inline
+--binarygrouping none
+--hexgrouping none
+--decimalgrouping none
+--header ignore
+--exclude Pods,Carthage,DerivedData,.build
+
+# Keep closure parameters on the same line
+--closurevoid false

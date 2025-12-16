@@ -36,7 +36,7 @@ struct ArtistRow: View {
                             ProgressView()
                         )
 
-                case .success(let image):
+                case let .success(image):
                     image
                         .resizable()
                         .scaledToFill()
@@ -84,8 +84,8 @@ struct ArtistRow: View {
             .ultraThinMaterial,
             in: RoundedRectangle(cornerRadius: 12, style: .continuous)
         )
-        
-        .contentShape(Rectangle())  // tüm satır tıklanabilir alan
+
+        .contentShape(Rectangle()) // tüm satır tıklanabilir alan
         .onTapGesture {
             onTap?()
         }
@@ -101,7 +101,7 @@ struct ArtistRow: View {
                         .padding()
                 }
                 .buttonStyle(.plain)
-                .contentShape(Rectangle())  // tıklanabilir alanı büyüt
+                .contentShape(Rectangle()) // tıklanabilir alanı büyüt
             }
         }
         .padding(2)
@@ -109,13 +109,11 @@ struct ArtistRow: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.white.opacity(0.25), lineWidth: isSelected ? 2 : 1)
         )
-       
+
         .animation(
             .spring(response: 0.2, dampingFraction: 0.8),
             value: isSelected
         )
-       
-
     }
 }
 
@@ -127,6 +125,5 @@ struct ArtistRow_Previews: PreviewProvider {
         }
         .padding()
         .previewLayout(.sizeThatFits)
-
     }
 }

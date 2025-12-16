@@ -15,26 +15,26 @@ enum Route: Hashable {
 }
 
 extension Route {
-    public static func == (lhs: Route, rhs: Route) -> Bool {
+    static func == (lhs: Route, rhs: Route) -> Bool {
         switch (lhs, rhs) {
         case (.weather, .weather),
-            (.genres, .genres),
-            (.artists, .artists),
-            (.recommendations, .recommendations),
-            (.favoriteArtists, .favoriteArtists),
-            (.settings, .settings):
-            return true
+             (.genres, .genres),
+             (.artists, .artists),
+             (.recommendations, .recommendations),
+             (.favoriteArtists, .favoriteArtists),
+             (.settings, .settings):
+            true
 
-            
         default:
-            return false
+            false
         }
     }
 }
 
 // MARK: To conform the Route to Hashable so it can be in a NavPath.
+
 extension Route {
-    public func hash(into hasher: inout Hasher) {
+    func hash(into hasher: inout Hasher) {
         switch self {
         case .weather:
             hasher.combine(0)

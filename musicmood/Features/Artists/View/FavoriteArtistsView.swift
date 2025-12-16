@@ -11,14 +11,13 @@ struct FavoriteArtistsView: View {
     @EnvironmentObject var artistsViewModel: FavoriteArtistsViewModel
     @EnvironmentObject var artistsSearchViewModel: ArtistSearchViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         ZStack {
             LinearGradient.primary.ignoresSafeArea()
             ScrollView {
                 LazyVStack {
-                    ForEach($artistsViewModel.artists, id: \.id) {
-                        $artist in
+                    ForEach($artistsViewModel.artists, id: \.id) { $artist in
                         ArtistRow(
                             artist: artist,
                             isSelected: artistsSearchViewModel.isSelected(
@@ -54,13 +53,11 @@ struct FavoriteArtistsView: View {
 
 #if DEBUG
 struct FavoriteArtists_Previews: PreviewProvider {
-
     static var previews: some View {
         FavoriteArtistsView()
             .withPreviewDependencies()
             .environmentObject(
                 DependencyFactory.buildFavoriteArtistsViewModel(isPreview: true)
-
             )
     }
 }

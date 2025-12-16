@@ -1,5 +1,5 @@
 //
-//  Route+deeplink.swift
+//  Route+deepLink+universalLink.swift
 //  musicmood
 //
 //  Created by Gurhan on 12/14/25.
@@ -11,25 +11,15 @@ extension Route {
     static func from(url: URL) -> Route? {
         if url.isDeepLink {
             return fromDeepLink(url: url)
-        }
-        else if url.isUniversalLink {
+        } else if url.isUniversalLink {
             return fromUniversalLink(url: url)
         }
         return nil
     }
-    
+
     private static func fromUniversalLink(url: URL) -> Route? {
         let path = url.path
-        guard
-            let components = URLComponents(
-                url: url,
-                resolvingAgainstBaseURL: false
-            )
-        else {
-            return nil
-        }
-        
-        let queryItems = components.queryItems
+
         let pathComponents = path.split(separator: "/").map(String.init)
 
         switch pathComponents[0] {
@@ -39,25 +29,21 @@ extension Route {
             return nil
         }
     }
-    
-    
+
     private static func fromDeepLink(url: URL) -> Route? {
         guard url.isDeepLink else {
             return nil
         }
 
-        let path = url.path
-        guard
-            let components = URLComponents(
-                url: url,
-                resolvingAgainstBaseURL: false
-            )
+        guard URLComponents(
+            url: url,
+            resolvingAgainstBaseURL: false
+        ) != nil
         else {
             return nil
         }
-        
-        let queryItems = components.queryItems
-        let pathComponents = path.split(separator: "/").map(String.init)
+
+        // let pathComponents = path.split(separator: "/").map(String.init)
 
         switch url.host {
         case "weather":
@@ -65,9 +51,9 @@ extension Route {
 
         case "favorite-artists":
             return .favoriteArtists
+
         default:
             return nil
         }
     }
-
 }

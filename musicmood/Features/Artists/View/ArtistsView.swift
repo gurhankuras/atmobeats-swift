@@ -12,7 +12,7 @@ struct ArtistsView: View {
     @EnvironmentObject var router: Router
 
     @EnvironmentObject var artistsViewModel: ArtistSearchViewModel
-    
+
     var body: some View {
         ZStack {
             LinearGradient.primary.ignoresSafeArea()
@@ -24,7 +24,6 @@ struct ArtistsView: View {
                         }
                     }
                 searchField
-                    
 
                 if artistsViewModel.isQueryHasLessThanThreeCharacters {
                     minimumCharactersWarning
@@ -123,8 +122,7 @@ struct ArtistsView: View {
     private var selectedArtistsList: some View {
         ScrollView {
             LazyVStack {
-                ForEach($artistsViewModel.selectedArtists, id: \.id) {
-                    $artist in
+                ForEach($artistsViewModel.selectedArtists, id: \.id) { $artist in
                     ArtistRow(
                         artist: artist,
                         isSelected: true,
@@ -145,11 +143,10 @@ struct ArtistsView: View {
         let queryLength = trimmedQuery.count
 
         // ✅ Sonuçlar varsa dropdown liste
-        if queryLength >= 3 && !artistsViewModel.artists.isEmpty {
+        if queryLength >= 3, !artistsViewModel.artists.isEmpty {
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach($artistsViewModel.artists, id: \.id) {
-                        $artist in
+                    ForEach($artistsViewModel.artists, id: \.id) { $artist in
                         ArtistRow(
                             artist: artist,
                             isSelected: artistsViewModel
@@ -180,8 +177,8 @@ struct ArtistsView: View {
             )
 
             // ✅ 3+ karakter var ama sonuç yoksa “No results”
-        } else if queryLength >= 3
-            && artistsViewModel.artists.isEmpty
+        } else if queryLength >= 3,
+                  artistsViewModel.artists.isEmpty
         {
             Text("artists.search.no_found")
                 .font(.subheadline)
@@ -212,7 +209,6 @@ struct ArtistsView: View {
         .longButtonStyle(isDisabled: artistsViewModel.selectedArtists.isEmpty)
         .padding()
     }
-
 }
 
 #if DEBUG
