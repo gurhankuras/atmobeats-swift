@@ -31,6 +31,14 @@ Push a new beta build to TestFlight
 
 Push a new prod build to Store
 
+### ios pre_build_checks
+
+```sh
+[bundle exec] fastlane ios pre_build_checks
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
