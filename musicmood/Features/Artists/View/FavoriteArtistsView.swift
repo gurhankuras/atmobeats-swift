@@ -52,6 +52,7 @@ struct FavoriteArtistsView: View {
     }
 }
 
+#if DEBUG
 struct FavoriteArtists_Previews: PreviewProvider {
 
     static var previews: some View {
@@ -63,3 +64,4 @@ struct FavoriteArtists_Previews: PreviewProvider {
             )
     }
 }
+#endif

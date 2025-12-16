@@ -7,3 +7,4 @@
 */
 
 "NSLocationWhenInUseUsageDescription" = "To suggest music based on your weather, we need your location.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "To suggest music based on your weather, we need your location.";

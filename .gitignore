@@ -62,6 +62,8 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
                     
                     
-GoogleService-Info.plist
+GoogleService-Info*.plist
 .DS_Store
 **/.DS_Store
+fastlane/.env
+fastlane/*.p8

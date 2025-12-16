@@ -103,6 +103,7 @@ struct RecommendationsView: View {
     }
 }
 
+#if DEBUG
 struct RecommendationsRecommendationView_Previews: PreviewProvider {
 
     static var previews: some View {
@@ -110,3 +111,4 @@ struct RecommendationsRecommendationView_Previews: PreviewProvider {
             .withPreviewDependencies()
     }
 }
+#endif
