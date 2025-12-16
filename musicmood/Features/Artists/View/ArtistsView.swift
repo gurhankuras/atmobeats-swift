@@ -215,10 +215,11 @@ struct ArtistsView: View {
 
 }
 
-
+#if DEBUG
 struct ArtistsView_Previews: PreviewProvider {
     static var previews: some View {
         ArtistsView()
             .withPreviewDependencies()
     }
 }
+#endif

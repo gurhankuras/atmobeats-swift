@@ -1,0 +1,47 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+require_relative "lanes/lane_prod_upload"
+require_relative "lanes/lane_dev_upload"
+require_relative "helpers/resolve_version"
+require_relative "helpers/apply_version_and_build"
+
+default_platform(:ios)
+
+app_store_connect_api_key(
+  key_id: ENV["ASC_KEY_ID"],
+  issuer_id: ENV["ASC_ISSUER_ID"],
+  key_filepath: ENV["ASC_KEY_FILEPATH"],
+  in_house: false
+)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :dev_upload do
+    lane_dev_upload
+  end
+  
+  desc "Push a new prod build to Store"
+  lane :prod_upload do
+    lane_prod_upload
+  end
+  
+  lane :pre_build_checks do
+  ensure_git_status_clean
+  swiftlint(
+    mode: :lint,
+    strict: true
+  )
+  end
+end

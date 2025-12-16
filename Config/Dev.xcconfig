@@ -1,0 +1,14 @@
+//
+//  Dev.xcconfig
+//  atmobeats
+//
+//  Created by Gurhan on 12/16/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+PRODUCT_BUNDLE_IDENTIFIER = com.kuras.atmobeats.dev
+APP_DISPLAY_NAME = AtmoBeats Dev
+FIREBASE_PLIST_NAME = GoogleService-Info-Dev
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon-Dev

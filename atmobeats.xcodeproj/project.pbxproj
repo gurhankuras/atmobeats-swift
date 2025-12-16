@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59C022752EF0A63A00E0059D /* GoogleService-Info-Prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59C022672EF0A63A00E0059D /* GoogleService-Info-Prod.plist */; };
+		59C022C92EF0BB9500E0059D /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59C022C82EF0BB9500E0059D /* GoogleService-Info-Dev.plist */; };
 		59CF74FA2EE6C2A800918BB7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 59CF74F92EE6C2A800918BB7 /* Lottie */; };
 		59ECC82B2EF0238300793913 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 59ECC82A2EF0238300793913 /* FirebaseMessaging */; };
 		59ECCBFA2EF0465B00793913 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 59ECCBF92EF0465800793913 /* README.md */; };
@@ -34,6 +36,8 @@
 		591B46EE2EE57577007B9E8B /* atmobeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atmobeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		591B46FB2EE57579007B9E8B /* atmobeatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmobeatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		591B47052EE57579007B9E8B /* atmobeatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmobeatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C022672EF0A63A00E0059D /* GoogleService-Info-Prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Prod.plist"; sourceTree = "<group>"; };
+		59C022C82EF0BB9500E0059D /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		59ECCBF92EF0465800793913 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		59ECCEE72EF04A7B00793913 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +69,11 @@
 		591B47082EE57579007B9E8B /* musicmoodUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = musicmoodUITests;
+			sourceTree = "<group>";
+		};
+		59C022C02EF0B73F00E0059D /* Config */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -99,6 +108,8 @@
 		591B46E52EE57577007B9E8B = {
 			isa = PBXGroup;
 			children = (
+				59C022C72EF0BB6A00E0059D /* Firebase */,
+				59C022C02EF0B73F00E0059D /* Config */,
 				59ECCEE72EF04A7B00793913 /* .gitignore */,
 				59ECCBF92EF0465800793913 /* README.md */,
 				591B46F02EE57577007B9E8B /* musicmood */,
@@ -118,6 +129,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		59C022C72EF0BB6A00E0059D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				59C022672EF0A63A00E0059D /* GoogleService-Info-Prod.plist */,
+				59C022C82EF0BB9500E0059D /* GoogleService-Info-Dev.plist */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 591B470F2EE57579007B9E8B /* Build configuration list for PBXNativeTarget "atmobeats" */;
 			buildPhases = (
+				59C022CA2EF0BC0300E0059D /* Move GoogleService-Info Run Script */,
 				591B46EA2EE57577007B9E8B /* Sources */,
 				591B46EB2EE57577007B9E8B /* Frameworks */,
 				591B46EC2EE57577007B9E8B /* Resources */,
@@ -135,6 +156,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				591B46F02EE57577007B9E8B /* musicmood */,
+				59C022C02EF0B73F00E0059D /* Config */,
 			);
 			name = atmobeats;
 			packageProductDependencies = (
@@ -245,6 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C022C92EF0BB9500E0059D /* GoogleService-Info-Dev.plist in Resources */,
+				59C022752EF0A63A00E0059D /* GoogleService-Info-Prod.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +287,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59C022CA2EF0BC0300E0059D /* Move GoogleService-Info Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Firebase/GoogleService-Info-Dev.plist",
+				"$(SRCROOT)/Firebase/GoogleService-Info-Prod.plist",
+			);
+			name = "Move GoogleService-Info Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/GoogleService-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nPLIST_NAME=\"${FIREBASE_PLIST_NAME}.plist\"\nSOURCE_PLIST=\"${SRCROOT}/Firebase/${PLIST_NAME}\"\nDEST_PLIST=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}/GoogleService-Info.plist\"\n\nif [ ! -f \"$SOURCE_PLIST\" ]; then\n  echo \"❌ Firebase plist not found: $SOURCE_PLIST\"\n  exit 1\nfi\n\necho \"✅ Using Firebase plist: $SOURCE_PLIST\"\ncp \"$SOURCE_PLIST\" \"$DEST_PLIST\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		591B46EA2EE57577007B9E8B /* Sources */ = {
@@ -304,8 +352,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		591B470D2EE57579007B9E8B /* Debug */ = {
+		591B470D2EE57579007B9E8B /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -366,10 +416,12 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		591B470E2EE57579007B9E8B /* Release */ = {
+		591B470E2EE57579007B9E8B /* Release-Prod */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -423,35 +475,44 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release-Prod";
 		};
-		591B47102EE57579007B9E8B /* Debug */ = {
+		591B47102EE57579007B9E8B /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(ASSETCATALOG_COMPILER_APPICON_NAME)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = musicmood/musicmood.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AtmoBeats;
+				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is needed to get weather info.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to get weather info.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.atmobeats;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.kuras.atmobeats.dev";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -464,35 +525,43 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		591B47112EE57579007B9E8B /* Release */ = {
+		591B47112EE57579007B9E8B /* Release-Prod */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(ASSETCATALOG_COMPILER_APPICON_NAME)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = musicmood/musicmood.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				CODE_SIGN_ENTITLEMENTS = atmobeatsRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = musicmood/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AtmoBeats;
+				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is needed to get weather info.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to get weather info.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.atmobeats;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.kuras.atmobeats";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -505,14 +574,16 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = "Release-Prod";
 		};
-		591B47132EE57579007B9E8B /* Debug */ = {
+		591B47132EE57579007B9E8B /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = PG5DH5Q24R;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
@@ -527,14 +598,16 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atmobeats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/atmobeats";
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		591B47142EE57579007B9E8B /* Release */ = {
+		591B47142EE57579007B9E8B /* Release-Prod */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = PG5DH5Q24R;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
@@ -549,13 +622,15 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atmobeats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/atmobeats";
 			};
-			name = Release;
+			name = "Release-Prod";
 		};
-		591B47162EE57579007B9E8B /* Debug */ = {
+		591B47162EE57579007B9E8B /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = PG5DH5Q24R;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -569,13 +644,15 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = musicmood;
 			};
-			name = Debug;
+			name = "Debug-Dev";
 		};
-		591B47172EE57579007B9E8B /* Release */ = {
+		591B47172EE57579007B9E8B /* Release-Prod */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = PG5DH5Q24R;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -589,7 +666,323 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = musicmood;
 			};
-			name = Release;
+			name = "Release-Prod";
+		};
+		59D05B782EF17036000EB8F5 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Release-Dev";
+		};
+		59D05B792EF17036000EB8F5 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(ASSETCATALOG_COMPILER_APPICON_NAME)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = musicmood/musicmood.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = musicmood/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is needed to get weather info.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to get weather info.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.kuras.atmobeats.dev";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Release-Dev";
+		};
+		59D05B7A2EF17036000EB8F5 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.musicmoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atmobeats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/atmobeats";
+			};
+			name = "Release-Dev";
+		};
+		59D05B7B2EF17036000EB8F5 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Dev.xcconfig;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.musicmoodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = musicmood;
+			};
+			name = "Release-Dev";
+		};
+		59D05B7C2EF17047000EB8F5 /* Debug-Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Debug-Prod";
+		};
+		59D05B7D2EF17047000EB8F5 /* Debug-Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(ASSETCATALOG_COMPILER_APPICON_NAME)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = atmobeatsRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PG5DH5Q24R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = musicmood/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AtmoBeats Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is needed to get weather info.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to get weather info.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.kuras.atmobeats";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug-Prod";
+		};
+		59D05B7E2EF17047000EB8F5 /* Debug-Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.musicmoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atmobeats.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/atmobeats";
+			};
+			name = "Debug-Prod";
+		};
+		59D05B7F2EF17047000EB8F5 /* Debug-Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59C022C02EF0B73F00E0059D /* Config */;
+			baseConfigurationReferenceRelativePath = Prod.xcconfig;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = PG5DH5Q24R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuras.musicmoodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = musicmood;
+			};
+			name = "Debug-Prod";
 		};
 /* End XCBuildConfiguration section */
 
@@ -597,38 +990,46 @@
 		591B46E92EE57577007B9E8B /* Build configuration list for PBXProject "atmobeats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				591B470D2EE57579007B9E8B /* Debug */,
-				591B470E2EE57579007B9E8B /* Release */,
+				591B470D2EE57579007B9E8B /* Debug-Dev */,
+				59D05B782EF17036000EB8F5 /* Release-Dev */,
+				591B470E2EE57579007B9E8B /* Release-Prod */,
+				59D05B7C2EF17047000EB8F5 /* Debug-Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Prod";
 		};
 		591B470F2EE57579007B9E8B /* Build configuration list for PBXNativeTarget "atmobeats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				591B47102EE57579007B9E8B /* Debug */,
-				591B47112EE57579007B9E8B /* Release */,
+				591B47102EE57579007B9E8B /* Debug-Dev */,
+				59D05B792EF17036000EB8F5 /* Release-Dev */,
+				591B47112EE57579007B9E8B /* Release-Prod */,
+				59D05B7D2EF17047000EB8F5 /* Debug-Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Prod";
 		};
 		591B47122EE57579007B9E8B /* Build configuration list for PBXNativeTarget "atmobeatsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				591B47132EE57579007B9E8B /* Debug */,
-				591B47142EE57579007B9E8B /* Release */,
+				591B47132EE57579007B9E8B /* Debug-Dev */,
+				59D05B7A2EF17036000EB8F5 /* Release-Dev */,
+				591B47142EE57579007B9E8B /* Release-Prod */,
+				59D05B7E2EF17047000EB8F5 /* Debug-Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Prod";
 		};
 		591B47152EE57579007B9E8B /* Build configuration list for PBXNativeTarget "atmobeatsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				591B47162EE57579007B9E8B /* Debug */,
-				591B47172EE57579007B9E8B /* Release */,
+				591B47162EE57579007B9E8B /* Debug-Dev */,
+				59D05B7B2EF17036000EB8F5 /* Release-Dev */,
+				591B47172EE57579007B9E8B /* Release-Prod */,
+				59D05B7F2EF17047000EB8F5 /* Debug-Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Prod";
 		};
 /* End XCConfigurationList section */
 

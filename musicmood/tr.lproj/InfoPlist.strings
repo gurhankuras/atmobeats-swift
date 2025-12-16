@@ -7,3 +7,4 @@
 */
 
 "NSLocationWhenInUseUsageDescription" = "Hava durumuna göre müzik önerebilmemiz için konumuna erişmemiz gerekiyor.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Hava durumuna göre müzik önerebilmemiz için konumuna erişmemiz gerekiyor.";
